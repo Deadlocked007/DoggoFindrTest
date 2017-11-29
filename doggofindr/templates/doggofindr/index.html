@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+{% block head %}
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" type="text/css" href="/static/css/index.css"><script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script src="/static/js/index.js"></script>
+{% endblock %}
+{% block content %}
+<div id="masterDiv" class="masterDiv" align="center">
+  <div id="headDiv" class="masterDiv headDiv">
+    <div id="headTitleDiv" class="masterDiv headDiv">
+      <h1>Public</h1>
+    </div>
+  </div>
+
+  <div id="content1Div" class="masterdiv" align="center">
+      {% for img in imgList %}
+        {% if img.imgFile %}
+        <!-- <div class="responsive">
+          <div class="gallery">
+            <a target="_blank" href='{{img.imgFile.url}}'>
+              <img id={{img.id}} class="mySlides fitImage" src='{{img.imgFile.url}}' width="600" height="400">
+            </a>
+            <div class="desc">
+              Description
+            </div>
+          </div>
+        </div> -->
+        <div class="gridImgLayout container">
+          <div class="imgDiv">
+            <a target="_blank" href='{{img.imgFile.url}}'>
+              <img id={{img.id}} class="gridImg" src='{{img.imgFile.url}}'>
+            </a>
+          </div>
+          <div class="descDiv">
+            <h3>{{img.breedName}}</h3>
+            <p class="title">{{img.author}}</p>
+          </div>
+        </div>
+        {% endif %}
+      {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
